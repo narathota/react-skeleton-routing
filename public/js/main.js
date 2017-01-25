@@ -25597,7 +25597,6 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var HashHistory = ReactRouter.hashHistory;
-var BrowserHistory = ReactRouter.browserHistory;
 
 var Base = require('./components/Base.jsx');
 var Page1 = require('./components/Page1.jsx');
@@ -25620,6 +25619,9 @@ module.exports = Routes;
 //More like a container
 
 var React = require('react');
+var Router = require('react-router');
+
+var RouterLink = Router.Link;
 
 var Base = React.createClass({
     displayName: 'Base',
@@ -25635,6 +25637,20 @@ var Base = React.createClass({
             ),
             this.props.children,
             React.createElement(
+                RouterLink,
+                { to: 'page1' },
+                React.createElement(
+                    'button',
+                    null,
+                    'Page 1'
+                )
+            ),
+            React.createElement(
+                RouterLink,
+                { to: 'page2' },
+                ' Page 2 '
+            ),
+            React.createElement(
                 'h1',
                 null,
                 'Footer'
@@ -25645,7 +25661,7 @@ var Base = React.createClass({
 
 module.exports = Base;
 
-},{"react":226}],229:[function(require,module,exports){
+},{"react":226,"react-router":56}],229:[function(require,module,exports){
 var React = require('react');
 
 var Page1 = React.createClass({
